@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import BasketApp from "./BasketApp";
 
-const App = () => <h1>Basket App Hazır 🧺</h1>;
-
-const root = ReactDOM.createRoot(document.getElementById('root')!);
-root.render(<App />);
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+root.render(<BasketApp />);

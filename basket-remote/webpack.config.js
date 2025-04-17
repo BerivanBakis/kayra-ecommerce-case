@@ -34,6 +34,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "basket_remote",
       filename: "remoteEntry.js",
+      remotes: {
+        host_app: "host_app@http://localhost:3000/remoteEntry.js",
+      },
       exposes: {
         "./BasketApp": "./src/BasketApp",
       },
@@ -47,6 +50,12 @@ module.exports = {
           singleton: true,
           requiredVersion: "19.1.0",
           eager: true,
+        },
+        "react-redux": {
+          singleton: true,
+        },
+        "@reduxjs/toolkit": {
+          singleton: true,
         },
       },      
     }),

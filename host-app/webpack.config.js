@@ -12,9 +12,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js', 
     clean: true,
-  },
+  },  
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
@@ -37,18 +37,16 @@ module.exports = {
         products_remote: "products_remote@http://localhost:3001/remoteEntry.js",
         basket_remote: "basket_remote@http://localhost:3002/remoteEntry.js",
       },
+      exposes: {
+        "./store": "./src/shared/store",
+      },
       shared: {
-        react: {
-          singleton: true,
-          requiredVersion: "19.1.0",
-          eager: true,
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: "19.1.0",
-          eager: true,
-        },
-      }, 
-    }),      
+        react: { singleton: true, eager: true },
+        "react-dom": { singleton: true, eager: true },
+        'react-redux': { eager: true, singleton: true },
+        "@reduxjs/toolkit": { eager: true, singleton: true },
+      },
+    }),
+         
   ],
 };
